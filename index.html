@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio - [Your Name]</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        color: #333;
+        line-height: 1.6;
+        padding: 20px;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+      }
+
+      header p {
+        font-size: 1.2rem;
+        color: #555;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      section p {
+        --margin-bottom: 30px;
+        text-align: justify;
+      }
+
+      section {
+        margin-bottom: 30px;
+      }
+
+      section h2 {
+        font-size: 1.8rem;
+        border-bottom: 2px solid #ddd;
+        margin-bottom: 15px;
+        padding-bottom: 5px;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      ul li {
+        margin-bottom: 10px;
+        margin-left: 20px;
+        text-align: justify;
+      }
+
+      footer {
+        text-align: center;
+        margin-top: 40px;
+        font-size: 0.9rem;
+        color: #555;
+      }
+
+      footer a {
+        color: #333;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+    </style>
+    <script>
+      function lti_launch(vars, target) {
+        var query = "";
+        var new_tab = false;
+
+        for (var key in vars) {
+          if (query.length == 0) {
+            query += "?" + key + "=" + encodeURIComponent(vars[key]);
+          } else {
+            query += "&" + key + "=" + encodeURIComponent(vars[key]);
+          }
+        }
+
+        var url = "/d2l/customization/pearsonlti/737504/Launch" + query;
+        target == "_blank" ? window.open(url, "_blank") : location.replace(url);
+      }
+    </script>
+    <script src="/d2l/im/d2lreader/D2LReader_v2.js?rsUrl=https%3a%2f%2fapp.readspeaker.com%2fcgi-bin%2frsent&amp;custId=10078&amp;lang=en_us&amp;listenText=Listen&amp;listenTitle=Listen+to+this+page&amp;mode=unknown&amp;v=20.25.1.18731"></script>
+    <script>
+      const allowDetach = true;
+
+      window.rsConf = {
+        general: {
+          usePost: true,
+          shadowDomSelector: "[data-rs-shadow-root], d2l-html-block",
+        },
+        ui: {
+          disableDetachment: !allowDetach,
+          playbackDetach: allowDetach,
+          tools: { detachment: allowDetach },
+        },
+      };
+    </script>
+    <script src="https://cdn-na.readspeaker.com/script/10078/webReaderForEducation/brightspace/current/webReader.js?pids=wr&amp;dload=BrightSpace"></script>
+    <script
+      src="https://s.brightspace.com/lib/bsi/2025.1.236/unbundled/embeds.js"
+      type="module"
+    ></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        window.D2L.EmbedRenderer.renderEmbeds(document.body);
+      });
+    </script>
+    <script
+      src="https://s.brightspace.com/lib/bsi/2025.1.236/unbundled/mathjax.js"
+      type="module"
+    ></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        if (
+          document.querySelector("math") ||
+          /\$\$|\\\(|\\\[|\\begin{|\\ref{|\\eqref{/.test(
+            document.body.innerHTML
+          )
+        ) {
+          document
+            .querySelectorAll('mspace[linebreak="newline"]')
+            .forEach((elm) => {
+              elm.setAttribute("style", "display: block; height: 0.5rem;");
+            });
+
+          window.D2L.MathJax.loadMathJax({
+            outputScale: 1.5,
+            renderLatex: false,
+            enableMML3Support: false,
+          });
+        }
+      });
+    </script>
+    <script
+      src="https://s.brightspace.com/lib/bsi/2025.1.236/unbundled/prism.js"
+      type="module"
+    ></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".d2l-code").forEach((code) => {
+          window.D2L.Prism.formatCodeElement(code);
+        });
+      });
+    </script>
+    <script
+      src="https://s.brightspace.com/lib/bsi/2025.1.236/unbundled/creator.js"
+      type="module"
+    ></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", async () => {
+        const activities = [];
+        const practices = [];
+        const allPractices = document.querySelectorAll(".d2l-practice");
+        const elements = document.querySelectorAll(".d2l-element");
+        let layouts = [...document.querySelectorAll(".d2l-cplus-layout")];
+        const tables = document.querySelectorAll("table");
+        const contentStylerStyleLinks = document.querySelectorAll(
+          'head > link[href="https://templates.lcs.brightspace.com/lib/assets/css/styles.min.css"]'
+        );
+        const contentStylerOverides = document.querySelectorAll(
+          'head > link[href^="/d2l/le/contentstyler/"][data-override="override"]'
+        );
+
+        layouts = layouts.filter(
+          (layout) => layout.closest(".d2l-element.mceNonEditable") === null
+        );
+
+        for (const practice of allPractices) {
+          const activityContainer = practice.hasAttribute(
+            "data-d2l-activity-href"
+          );
+          if (activityContainer) {
+            activities.push(practice);
+          } else {
+            practices.push(practice);
+          }
+        }
+
+        if (layouts.length > 0) {
+          window.D2L.Creator.convertLayouts(layouts);
+        }
+        if (elements.length > 0) {
+          window.D2L.Creator.convertElements(
+            elements,
+            737504,
+            "/content/enforced/737504-202430CPRG-206-A/",
+            "True"
+          );
+        }
+        if (activities.length > 0) {
+          window.D2L.Creator.convertPracticeActivities(
+            activities,
+            737504,
+            "/content/enforced/737504-202430CPRG-206-A/"
+          );
+        }
+        if (practices.length > 0) {
+          window.D2L.Creator.convertPractices(
+            practices,
+            737504,
+            "/content/enforced/737504-202430CPRG-206-A/"
+          );
+        }
+        if (
+          contentStylerStyleLinks.length > 0 &&
+          contentStylerOverides.length > 0 &&
+          tables.length > 0
+        ) {
+          window.D2L.Creator.wrapTables(tables);
+        }
+      });
+    </script>
+    <script>
+      window.addEventListener("message", function (event) {
+        if (!event.data) {
+          return;
+        }
+
+        let params;
+        try {
+          params = JSON.parse(event.data);
+        } catch {
+          return;
+        }
+        if (!params.subject || params.subject !== "lti.frameResize") {
+          return;
+        }
+
+        const MAX_FRAME_HEIGHT = 10000;
+        if (
+          !params.height ||
+          params.height < 1 ||
+          params.height > MAX_FRAME_HEIGHT
+        ) {
+          console.warn("Invalid height value received, aborting");
+          return;
+        }
+        const el = document.getElementsByTagName("iframe");
+        for (let i = 0; i < el.length; i++) {
+          if (el[i].contentWindow === event.source) {
+            el[i].style.height = params.height + "px";
+
+            console.info("Setting iFrame height to " + params.height);
+
+            if (el[i].getAttribute("lockwidth") !== "true") {
+              el[i].style.width = "100%";
+              console.info("Setting iFrame width to 100%");
+            }
+          }
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>Octave Kameni</h1>
+      <p>Junior Database Administrator | IT Technician | Problem Solver</p>
+      <p>Calgary, AB | +1 (587) 435-6468 | koctave64@gmail.com</p>
+    </header>
+
+    <div class="container">
+      <section>
+        <h2>Professional profile</h2>
+        <p>
+            After a long time working as an IT Support Technician where I gained strong
+            experience in Computer Networking installation and configuration, System
+            Administration and user support experience, I'm currently completing a Certificate in
+            Database Administration at SAIT which capacitate me with skills in Database design,
+            installation and configuration; Database performance monitoring and tuning;
+            Database Backup and Recovery processes; Database Security Management;
+            Database Capacity planning and Data Migration. Able to work in a fast-paced
+            environment, with a great capacity of adaptation and a good team player, I'm looking
+            an opportunity to demonstrate and apply my knowledges in this new career path.
+        </p>
+      </section>
+
+      <section>
+        <h2>Education and Certification</h2>
+        <p><strong>Certificate, Database Administrator:</strong> Sept 2024 - Expected graduation June 2025
+            Southern Alberta Institute of Technology, Calgary, AB <br/><strong>Key concepts:</strong>
+        </p>
+        <ul>
+          <li>Database design.</li>
+          <li>Installation and configuration.</li>
+          <li>SQL & PL/SQL language.</li>
+          <li>Database backup and recovery.</li>
+          <li>Database Performance monitoring and tuning.</li>
+          <li>Oracle Architecture and Administration.</li>
+          <li>Microsoft SQL Server deployment and Administration.</li>
+        </ul>
+        <p>
+            <strong>Professional Scrum Master I</strong> - June 2022
+        </p>
+        <ul>
+            <li>Agile project management</li>
+            <li>Scrum team building</li>
+            <li>Scrum team coaching</li>
+            <li>Conflict resolution</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Work Experience</h2>
+        <p>
+            <strong>IT Support Technician:</strong> April 2021 - October 2023; Full time General Treasury of Douala, Cameroon <br/> <strong>Achievements:</strong>
+        </p>
+        <ul>
+          <li>
+            Computer network monitoring and troubleshooting; and expanding the network to add new components and users.
+          </li>
+          <li>
+            Assisting users on various banking application and training them when new versions are available.
+          </li>
+          <li>
+            Monitoring Microsoft SQL Server and executing patch security and scripts for updating the server.
+          </li>
+          <li>
+            Executing SQL code to retrieve complex information and to resolve advanced problems.
+          </li>
+          <li>
+            Planning backup schedule on the Server and executing recovery procedure in case of data crash.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Hobby and Language</h2>
+        <ul>
+            <li>Passionate about personal development and discovery</li>
+            <li>Fluent in English and French</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Contact</h2>
+        <p>
+          Email:
+          <a href="mailto:koctave64@gmail.com">koctave64@gmail.com</a>
+        </p>
+        <p>
+          GitHub:
+          <a href="https://github.com/Octave-Kameni" target="_blank"
+            >github.com/Octave-Kameni</a
+          >
+        </p>
+        <p>
+          LinkedIn:
+          <a href="https://www.linkedin.com/in/octave-kameni" target="_blank"
+            >linkedin.com/in/octave-kameni</a
+          >
+        </p>
+      </section>
+    </div>
+
+    <footer>
+      <p>&copy; 2025 Octave Kameni. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
